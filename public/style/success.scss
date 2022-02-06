@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap");
+
+$firstColor: #f9dfdf;
+$lightFirstColor: #fdf5f5;
+$DarkerFirstColor: #eeaaa9;
+$Darker2FirstColor: #f39291;
+$secondColor: #c8a77a;
+$thirdColor: #96665c;
+$fourthColor: #c6acaa;
+$darkColor: #473232;
+
+body{
+    // background: rgb(0,205,180);
+    // background: linear-gradient(180deg, rgba(0,205,180,1) 0%, rgba(1,239,173,1) 100%);
+    background-repeat: no-repeat;
+    height: 98.3vh;
+    font-family: "Roboto Mono", monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #fff;
+    animation: backgroundChange 10s alternate ease-in-out infinite;
+    overflow: hidden;
+}
+.successSection{
+    position: relative;
+    .successHeader{
+        width: max-content;
+        height: 8rem;
+        background-color: rgba(51, 51, 51, 0.452);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem;
+        border-radius: 1rem;
+        position: relative;
+    }
+
+}
+
+@keyframes backgroundChange {
+    0%{
+        background-color:  #01EFAD;
+    }
+    20%{
+        background-color: #00A0C3;
+    }
+    40%{
+        background-color: #00B9B9;
+    }
+    60%{
+        background-color:#00CDB4;
+    }
+    80%{
+        background-color: #00DFAE;
+    }
+    100%{
+        background-color: #01EFAD;
+    }
+}
+
+@media screen and (max-width:600px) {
+    @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap");
+
+    $firstColor: #f9dfdf;
+    $lightFirstColor: #fdf5f5;
+    $DarkerFirstColor: #eeaaa9;
+    $Darker2FirstColor: #f39291;
+    $secondColor: #c8a77a;
+    $thirdColor: #96665c;
+    $fourthColor: #c6acaa;
+    $darkColor: #473232;
+    
+    body{
+        // background: rgb(0,205,180);
+        // background: linear-gradient(180deg, rgba(0,205,180,1) 0%, rgba(1,239,173,1) 100%);
+        background-repeat: no-repeat;
+        height: 98.3vh;
+        width: 97vw;
+        font-family: "Roboto Mono", monospace;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+        color: #fff;
+        animation: backgroundChange 10s alternate ease-in-out infinite;
+    }
+    .successSection{
+        position: relative;
+        .successHeader{
+            width: max-content;
+            height: 8rem;
+            background-color: rgba(51, 51, 51, 0.452);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 1rem;
+            position: relative;
+        }
+    
+    }
+    
+    @keyframes backgroundChange {
+        0%{
+            background-color:  #01EFAD;
+        }
+        20%{
+            background-color: #00A0C3;
+        }
+        40%{
+            background-color: #00B9B9;
+        }
+        60%{
+            background-color:#00CDB4;
+        }
+        80%{
+            background-color: #00DFAE;
+        }
+        100%{
+            background-color: #01EFAD;
+        }
+    }
+    
+}

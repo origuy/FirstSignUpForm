@@ -1,0 +1,508 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap");
+
+/* Color Palette */
+
+$firstColor: #f9dfdf;
+$lightFirstColor: #fdf5f5;
+$DarkerFirstColor: #eeaaa9;
+$Darker2FirstColor: #f39291;
+$secondColor: #c8a77a;
+$thirdColor: #96665c;
+$fourthColor: #c6acaa;
+$darkColor: #473232;
+
+/* Body Variables */
+$bodyBackgroundColor: $lightFirstColor;
+$bodyFontFamily: "Roboto Mono", monospace;
+
+/* #formWrapper variables */
+$formWrapperHeight: 100%;
+
+/* #formWrapper > img variables */
+$formWrapperImgWidth: 30rem;
+$formWrapperImgHeight: 30rem;
+
+/* #formWrapper > #form > #header */
+$headerMarginBottom: 1rem;
+$headerPaddingLeft: 0.02rem;
+$headerWidth: calc(max-content) + 1rem;
+$headerTextShadow: 0rem 0.05rem 0.3rem $thirdColor;
+$headerFontWeight: 600;
+$headerFontFontSize: 1.7rem;
+
+/* #formWrapper > #form > #header::before/after */
+$headerAnimationTime: 3s;
+$headerAnimationSteps: 24;
+$headerAnimationDelay: 2s;
+$headerAnimationFlickerTime: 0.75s;
+$headerAfterWidth: 0.4rem;
+$headerAfterBackgroundColor:#333;
+
+/* #formWrapper > #form > #inputWrapper > input */
+$inputWidth: 25rem;
+$inputHeight: 3rem;
+$inputBorder: 0.15rem solid #9b9b9b;
+$inputFontSize: 1.1rem;
+$inputPaddingLeft: 1rem;
+$inputTopBorderRadius: 0.6rem 0.6rem 0rem 0rem;
+$inputBottomBorderRadius: 0rem 0rem 0.6rem 0.6rem;
+$inputPlaceholderShownFontSize: 1.1rem;
+$inputPlaceholderShownPaddingLeft: 1rem;
+
+
+/* #formWrapper > #form > #inputWrapper > #btnSubmit */
+$submitWidth: 25rem;
+$submitBackgroundColor:$DarkerFirstColor;
+$submitTransition: 0.25s all ease-out;
+$submitBorderRadius: 0.3rem;
+$submitHeight: 3rem;
+$submitMarginTop: 1rem;
+$submitFontSize: 1.5rem;
+$submitFontColor: #fff;
+$submitFontWeight: 400;
+$submitMarginBottom: 5rem;
+$submitFontFamily: $bodyFontFamily;
+/* #formWrapper > #form > #inputWrapper > #btnSubmit:hover */
+$submitHoverOutlineColor:$DarkerFirstColor;
+$submitHoverOutlineWidth: 0.2rem;
+$submitHoverOutlineOffset: 0.5rem;
+$submitHoverBackgroundColor:$Darker2FirstColor;
+$submitHoverColor: #fff;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: $bodyBackgroundColor;
+	width: 97vw;
+	height: 97vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: $bodyFontFamily;
+	overflow: hidden;
+}
+
+#root {
+	height: 100%;
+	#formWrapper {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		height: $formWrapperHeight;
+		img {
+			width: $formWrapperImgWidth;
+			height: $formWrapperImgHeight;
+            transform: translateY(-30rem);
+            animation: topToBottom 3s ease 2s forwards;
+		}
+		#form {
+			#header {
+				margin-bottom: $headerMarginBottom;
+				padding-left: $headerPaddingLeft;
+				width: $headerWidth;
+				overflow: hidden;
+				white-space: nowrap;
+				// text-shadow: $headerTextShadow;
+				font-weight: $headerFontWeight;
+				font-size: $headerFontFontSize;
+				position: relative;
+			}
+			#header::before,
+			#header::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+			}
+            #header::before {
+                background-color: $bodyBackgroundColor;
+                animation: type $headerAnimationTime steps($headerAnimationSteps)
+                    $headerAnimationDelay forwards;
+            }
+            #header::after {
+                background-color: #333;
+                width: $headerAfterWidth;
+                animation: type $headerAnimationTime steps($headerAnimationSteps)
+                        $headerAnimationDelay forwards,
+                    flicker $headerAnimationFlickerTime steps($headerAnimationSteps)
+                        infinite;
+            }
+			#inputWrapper {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-flow: column nowrap;
+                transform: translateY(30rem);
+                animation: topToBottom 3s ease 2s forwards;
+				position: relative;
+				z-index: 3;
+				input {
+					border: none;
+					width: $inputWidth;
+					height: $inputHeight;
+					border: $inputBorder;
+					font-size: $inputFontSize;
+					padding-left: $inputPaddingLeft;
+				}
+				input:focus {
+					outline-color:$DarkerFirstColor;
+					outline-width: 0.1rem;
+					outline-style: solid;	
+                    box-shadow: 0rem 0rem 1rem $DarkerFirstColor;				
+				}
+				.first {
+					border-radius: $inputTopBorderRadius;
+                    border-bottom: none;
+				}
+				.middle {
+                    border-bottom: none;
+				}
+				.last {
+					border-radius: $inputBottomBorderRadius;
+				}
+				input:placeholder-shown {
+					font-size: $inputPlaceholderShownFontSize;
+					padding-left: $inputPlaceholderShownPaddingLeft;
+				}
+				input::placeholder {
+					color:#666;
+				}
+			}
+            #btnSubmit {
+                width: $submitWidth;
+                border: none;
+                background-color: $submitBackgroundColor;
+                transition: $submitTransition;
+                border-radius: $submitBorderRadius;
+                height: $submitHeight;
+                text-align: center;
+                margin-top: $submitMarginTop;
+                font-size: $submitFontSize;
+                color: $submitFontColor;
+                font-weight: $submitFontWeight;
+                margin-bottom: $submitMarginBottom;
+                font-family: $bodyFontFamily;
+				opacity: 0;
+                animation: topToBottomBtn 3s ease 2s forwards;
+				position: relative;
+				z-index: 3;
+				box-shadow: 0rem 0.5rem 1rem #a7a6a6;
+            }
+            #btnSubmit:hover {
+                outline-color: $submitHoverOutlineColor;
+                outline-style: solid;
+                outline-width: $submitHoverOutlineWidth;
+                outline-offset: $submitHoverOutlineOffset;
+                background-color: $submitHoverBackgroundColor;
+                color: $submitHoverColor;
+				cursor: pointer;
+
+            }
+
+		}
+	}
+	.lowerHeader {
+		text-align: center;
+        position: relative;
+        opacity: 0;
+        animation: lowerHeaderAnimation 3s ease 2s forwards;
+	}
+}
+
+@keyframes type {
+	to {
+		left: 98%;
+	}
+}
+@keyframes flicker {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+@keyframes topToBottom {
+
+    to{
+        transform:translateY(0);
+    }
+}
+@keyframes topToBottomBtn {
+	from{
+		transform: translateY(30rem);
+	}
+    to{
+        transform:translateY(0);
+		opacity: 1;
+    }
+}
+@keyframes lowerHeaderAnimation {
+	to {
+		opacity: 1;
+	}
+}
+
+
+/* Responsive Mobile */
+@media screen and (max-width:600px) {
+    /* Color Palette */
+
+$firstColor: #f9dfdf;
+$lightFirstColor: #fdf5f5;
+$DarkerFirstColor: #eeaaa9;
+$Darker2FirstColor: #f39291;
+$secondColor: #c8a77a;
+$thirdColor: #96665c;
+$fourthColor: #c6acaa;
+$darkColor: #473232;
+
+/* Body Variables */
+$bodyBackgroundColor: $lightFirstColor;
+$bodyFontFamily: "Roboto Mono", monospace;
+
+/* #formWrapper variables */
+$formWrapperHeight: 100%;
+
+/* #formWrapper > img variables */
+$formWrapperImgWidth: 20rem;
+$formWrapperImgHeight: 20rem;
+
+/* #formWrapper > #form > #header */
+$headerMarginBottom: 1rem;
+$headerPaddingLeft: 0.02rem;
+$headerWidth: calc(max-content) + 1rem;
+$headerTextShadow: 0rem 0.05rem 0.3rem $thirdColor;
+$headerFontWeight: 600;
+$headerFontFontSize: 1.3rem;
+
+/* #formWrapper > #form > #header::before/after */
+$headerAnimationTime: 3s;
+$headerAnimationSteps: 24;
+$headerAnimationDelay: 2s;
+$headerAnimationFlickerTime: 0.75s;
+$headerAfterWidth: 0.4rem;
+$headerAfterBackgroundColor:#333;
+
+/* #formWrapper > #form > #inputWrapper > input */
+$inputWidth: 20rem;
+$inputHeight: 3rem;
+$inputBorder: 0.15rem solid #9b9b9b;
+$inputFontSize: 1.1rem;
+$inputPaddingLeft: 1rem;
+$inputTopBorderRadius: 0.6rem 0.6rem 0rem 0rem;
+$inputBottomBorderRadius: 0rem 0rem 0.6rem 0.6rem;
+$inputPlaceholderShownFontSize: 1.1rem;
+$inputPlaceholderShownPaddingLeft: 1rem;
+
+
+/* #formWrapper > #form > #inputWrapper > #btnSubmit */
+$submitWidth: 20rem;
+$submitBackgroundColor:$DarkerFirstColor;
+$submitTransition: 0.25s all ease-out;
+$submitBorderRadius: 0.3rem;
+$submitHeight: 3rem;
+$submitMarginTop: 1rem;
+$submitFontSize: 1.5rem;
+$submitFontColor: #fff;
+$submitFontWeight: 400;
+$submitMarginBottom: 5rem;
+$submitFontFamily: $bodyFontFamily;
+/* #formWrapper > #form > #inputWrapper > #btnSubmit:hover */
+$submitHoverOutlineColor:$DarkerFirstColor;
+$submitHoverOutlineWidth: 0.2rem;
+$submitHoverOutlineOffset: 0.5rem;
+$submitHoverBackgroundColor:$Darker2FirstColor;
+$submitHoverColor: #fff;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: $bodyBackgroundColor;
+	width: 97vw;
+	height: 97vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: $bodyFontFamily;
+	overflow: hidden;
+}
+
+#root {
+	height: 100%;
+	#formWrapper {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		height: $formWrapperHeight;
+		img {
+			width: $formWrapperImgWidth;
+			height: $formWrapperImgHeight;
+            transform: translateY(-20rem);
+            animation: topToBottom 3s ease 2s forwards;
+		}
+		#form {
+			#header {
+				margin-bottom: $headerMarginBottom;
+				padding-left: $headerPaddingLeft;
+				width: $headerWidth;
+				overflow: hidden;
+				white-space: nowrap;
+				// text-shadow: $headerTextShadow;
+				font-weight: $headerFontWeight;
+				font-size: $headerFontFontSize;
+				position: relative;
+			}
+			#header::before,
+			#header::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+			}
+            #header::before {
+                background-color: $bodyBackgroundColor;
+                animation: type $headerAnimationTime steps($headerAnimationSteps)
+                    $headerAnimationDelay forwards;
+            }
+            #header::after {
+                background-color: #333;
+                width: $headerAfterWidth;
+                animation: type $headerAnimationTime steps($headerAnimationSteps)
+                        $headerAnimationDelay forwards,
+                    flicker $headerAnimationFlickerTime steps($headerAnimationSteps)
+                        infinite;
+            }
+			#inputWrapper {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-flow: column nowrap;
+                transform: translateY(30rem);
+                animation: topToBottom 3s ease 2s forwards;
+				position: relative;
+				z-index: 3;
+				input {
+					border: none;
+					width: $inputWidth;
+					height: $inputHeight;
+					border: $inputBorder;
+					font-size: $inputFontSize;
+					padding-left: $inputPaddingLeft;
+				}
+				input:focus {
+					outline-color:$DarkerFirstColor;
+					outline-width: 0.1rem;
+					outline-style: solid;	
+                    box-shadow: 0rem 0rem 1rem $DarkerFirstColor;				
+				}
+				.first {
+					border-radius: $inputTopBorderRadius;
+                    border-bottom: none;
+				}
+				.middle {
+                    border-bottom: none;
+				}
+				.last {
+					border-radius: $inputBottomBorderRadius;
+				}
+				input:placeholder-shown {
+					font-size: $inputPlaceholderShownFontSize;
+					padding-left: $inputPlaceholderShownPaddingLeft;
+				}
+				input::placeholder {
+					color:#666;
+				}
+			}
+            #btnSubmit {
+                width: $submitWidth;
+                border: none;
+                background-color: $submitBackgroundColor;
+                transition: $submitTransition;
+                border-radius: $submitBorderRadius;
+                height: $submitHeight;
+                text-align: center;
+                margin-top: $submitMarginTop;
+                font-size: $submitFontSize;
+                color: $submitFontColor;
+                font-weight: $submitFontWeight;
+                margin-bottom: $submitMarginBottom;
+                font-family: $bodyFontFamily;
+                transform: translateY(30rem);
+                animation: topToBottomBtn 3s ease 2s forwards;
+				position: relative;
+				z-index: 3;
+
+            }
+            #btnSubmit:hover {
+                outline-color: $submitHoverOutlineColor;
+				width: $submitWidth;
+				height: $submitHeight;
+                outline-style: solid;
+                outline-width: $submitHoverOutlineWidth;
+                outline-offset: $submitHoverOutlineOffset;
+                background-color: $submitHoverBackgroundColor;
+                color: $submitHoverColor;
+			}
+		}
+	}
+	.lowerHeader {
+		text-align: center;
+		position: relative;
+		opacity: 0;
+        animation: lowerHeaderAnimation 3s ease 2s forwards;
+	}
+}
+
+@keyframes type {
+	to {
+		left: 98%;
+	}
+}
+@keyframes flicker {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+@keyframes lowerHeaderAnimation {
+	to {
+		opacity: 1;
+	}
+}
+@keyframes topToBottom {
+
+    to{
+        transform:translateY(0);
+    }
+}
+@keyframes topToBottomBtn {
+	from{
+		transform: translateY(30rem);
+	}
+    to{
+        transform:translateY(0);
+		opacity: 1;
+    }
+}
+
+}
+

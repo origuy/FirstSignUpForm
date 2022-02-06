@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Welcome - signUp</title>
+		<link rel="stylesheet" href="style/style.css" />
+		<script src="app.js" defer></script>
+	</head>
+	<body>
+		<div id="root">
+			<div id="formWrapper">
+				<img src="images\Logo.svg" alt="Logo" />
+
+				<form id="form" action="/" method="post">
+					<h1 id="header">Sign Up to My Newsletter</h1>
+					<div id="inputWrapper">
+						<label for="fname"></label>
+						<input
+							class="first"
+							type="text"
+							name="fname"
+							placeholder="First Name"
+							id="fname"
+						/>
+						<label for="lname"></label>
+						<input
+							class="middle"
+							id="middleInput"
+							type="text"
+							name="lname"
+							placeholder="Last Name"
+							id="lname"
+						/>
+						<label for="email"></label>
+						<input
+							class="last"
+							type="email"
+							name="email"
+							placeholder="Email"
+							id="email"
+						/>
+					</div>
+					<button id="btnSubmit" type="submit">Sign Me Up!</button>
+				</form>
+			</div>
+			<h6 class="lowerHeader">&copy; Lee Malka Cosmetics</h6>
+		</div>
+	</body>
+</html>

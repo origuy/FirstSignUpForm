@@ -1,0 +1,560 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap");
+/* Color Palette */
+/* Body Variables */
+/* #formWrapper variables */
+/* #formWrapper > img variables */
+/* #formWrapper > #form > #header */
+/* #formWrapper > #form > #header::before/after */
+/* #formWrapper > #form > #inputWrapper > input */
+/* #formWrapper > #form > #inputWrapper > #btnSubmit */
+/* #formWrapper > #form > #inputWrapper > #btnSubmit:hover */
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #fdf5f5;
+  width: 97vw;
+  height: 97vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Roboto Mono", monospace;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+#root #formWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+#root #formWrapper img {
+  width: 30rem;
+  height: 30rem;
+  -webkit-transform: translateY(-30rem);
+          transform: translateY(-30rem);
+  -webkit-animation: topToBottom 3s ease 2s forwards;
+          animation: topToBottom 3s ease 2s forwards;
+}
+
+#root #formWrapper #form #header {
+  margin-bottom: 1rem;
+  padding-left: 0.02rem;
+  width: calc(-webkit-max-content)1rem;
+  width: calc(-moz-max-content)1rem;
+  width: calc(max-content)1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 1.7rem;
+  position: relative;
+}
+
+#root #formWrapper #form #header::before,
+#root #formWrapper #form #header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+#root #formWrapper #form #header::before {
+  background-color: #fdf5f5;
+  -webkit-animation: type 3s steps(24) 2s forwards;
+          animation: type 3s steps(24) 2s forwards;
+}
+
+#root #formWrapper #form #header::after {
+  background-color: #333;
+  width: 0.4rem;
+  -webkit-animation: type 3s steps(24) 2s forwards, flicker 0.75s steps(24) infinite;
+          animation: type 3s steps(24) 2s forwards, flicker 0.75s steps(24) infinite;
+}
+
+#root #formWrapper #form #inputWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-transform: translateY(30rem);
+          transform: translateY(30rem);
+  -webkit-animation: topToBottom 3s ease 2s forwards;
+          animation: topToBottom 3s ease 2s forwards;
+  position: relative;
+  z-index: 3;
+}
+
+#root #formWrapper #form #inputWrapper input {
+  border: none;
+  width: 25rem;
+  height: 3rem;
+  border: 0.15rem solid #9b9b9b;
+  font-size: 1.1rem;
+  padding-left: 1rem;
+}
+
+#root #formWrapper #form #inputWrapper input:focus {
+  outline-color: #eeaaa9;
+  outline-width: 0.1rem;
+  outline-style: solid;
+  -webkit-box-shadow: 0rem 0rem 1rem #eeaaa9;
+          box-shadow: 0rem 0rem 1rem #eeaaa9;
+}
+
+#root #formWrapper #form #inputWrapper .first {
+  border-radius: 0.6rem 0.6rem 0rem 0rem;
+  border-bottom: none;
+}
+
+#root #formWrapper #form #inputWrapper .middle {
+  border-bottom: none;
+}
+
+#root #formWrapper #form #inputWrapper .last {
+  border-radius: 0rem 0rem 0.6rem 0.6rem;
+}
+
+#root #formWrapper #form #inputWrapper input:placeholder-shown {
+  font-size: 1.1rem;
+  padding-left: 1rem;
+}
+
+#root #formWrapper #form #inputWrapper input::-webkit-input-placeholder {
+  color: #666;
+}
+
+#root #formWrapper #form #inputWrapper input:-ms-input-placeholder {
+  color: #666;
+}
+
+#root #formWrapper #form #inputWrapper input::-ms-input-placeholder {
+  color: #666;
+}
+
+#root #formWrapper #form #inputWrapper input::placeholder {
+  color: #666;
+}
+
+#root #formWrapper #form #btnSubmit {
+  width: 25rem;
+  border: none;
+  background-color: #eeaaa9;
+  -webkit-transition: 0.25s all ease-out;
+  transition: 0.25s all ease-out;
+  border-radius: 0.3rem;
+  height: 3rem;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 5rem;
+  font-family: "Roboto Mono", monospace;
+  opacity: 0;
+  -webkit-animation: topToBottomBtn 3s ease 2s forwards;
+          animation: topToBottomBtn 3s ease 2s forwards;
+  position: relative;
+  z-index: 3;
+  -webkit-box-shadow: 0rem 0.5rem 1rem #a7a6a6;
+          box-shadow: 0rem 0.5rem 1rem #a7a6a6;
+}
+
+#root #formWrapper #form #btnSubmit:hover {
+  outline-color: #eeaaa9;
+  outline-style: solid;
+  outline-width: 0.2rem;
+  outline-offset: 0.5rem;
+  background-color: #f39291;
+  color: #fff;
+  cursor: pointer;
+}
+
+#root .lowerHeader {
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  -webkit-animation: lowerHeaderAnimation 3s ease 2s forwards;
+          animation: lowerHeaderAnimation 3s ease 2s forwards;
+}
+
+@-webkit-keyframes type {
+  to {
+    left: 98%;
+  }
+}
+
+@keyframes type {
+  to {
+    left: 98%;
+  }
+}
+
+@-webkit-keyframes flicker {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes flicker {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes topToBottom {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes topToBottom {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes topToBottomBtn {
+  from {
+    -webkit-transform: translateY(30rem);
+            transform: translateY(30rem);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes topToBottomBtn {
+  from {
+    -webkit-transform: translateY(30rem);
+            transform: translateY(30rem);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes lowerHeaderAnimation {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lowerHeaderAnimation {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Mobile */
+@media screen and (max-width: 600px) {
+  /* Color Palette */
+  /* Body Variables */
+  /* #formWrapper variables */
+  /* #formWrapper > img variables */
+  /* #formWrapper > #form > #header */
+  /* #formWrapper > #form > #header::before/after */
+  /* #formWrapper > #form > #inputWrapper > input */
+  /* #formWrapper > #form > #inputWrapper > #btnSubmit */
+  /* #formWrapper > #form > #inputWrapper > #btnSubmit:hover */
+  * {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  body {
+    background-color: #fdf5f5;
+    width: 97vw;
+    height: 97vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-family: "Roboto Mono", monospace;
+    overflow: hidden;
+  }
+  #root {
+    height: 100%;
+  }
+  #root #formWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+  }
+  #root #formWrapper img {
+    width: 20rem;
+    height: 20rem;
+    -webkit-transform: translateY(-20rem);
+            transform: translateY(-20rem);
+    -webkit-animation: topToBottom 3s ease 2s forwards;
+            animation: topToBottom 3s ease 2s forwards;
+  }
+  #root #formWrapper #form #header {
+    margin-bottom: 1rem;
+    padding-left: 0.02rem;
+    width: calc(-webkit-max-content)1rem;
+    width: calc(-moz-max-content)1rem;
+    width: calc(max-content)1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 1.3rem;
+    position: relative;
+  }
+  #root #formWrapper #form #header::before,
+  #root #formWrapper #form #header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  #root #formWrapper #form #header::before {
+    background-color: #fdf5f5;
+    -webkit-animation: type 3s steps(24) 2s forwards;
+            animation: type 3s steps(24) 2s forwards;
+  }
+  #root #formWrapper #form #header::after {
+    background-color: #333;
+    width: 0.4rem;
+    -webkit-animation: type 3s steps(24) 2s forwards, flicker 0.75s steps(24) infinite;
+            animation: type 3s steps(24) 2s forwards, flicker 0.75s steps(24) infinite;
+  }
+  #root #formWrapper #form #inputWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-transform: translateY(30rem);
+            transform: translateY(30rem);
+    -webkit-animation: topToBottom 3s ease 2s forwards;
+            animation: topToBottom 3s ease 2s forwards;
+    position: relative;
+    z-index: 3;
+  }
+  #root #formWrapper #form #inputWrapper input {
+    border: none;
+    width: 20rem;
+    height: 3rem;
+    border: 0.15rem solid #9b9b9b;
+    font-size: 1.1rem;
+    padding-left: 1rem;
+  }
+  #root #formWrapper #form #inputWrapper input:focus {
+    outline-color: #eeaaa9;
+    outline-width: 0.1rem;
+    outline-style: solid;
+    -webkit-box-shadow: 0rem 0rem 1rem #eeaaa9;
+            box-shadow: 0rem 0rem 1rem #eeaaa9;
+  }
+  #root #formWrapper #form #inputWrapper .first {
+    border-radius: 0.6rem 0.6rem 0rem 0rem;
+    border-bottom: none;
+  }
+  #root #formWrapper #form #inputWrapper .middle {
+    border-bottom: none;
+  }
+  #root #formWrapper #form #inputWrapper .last {
+    border-radius: 0rem 0rem 0.6rem 0.6rem;
+  }
+  #root #formWrapper #form #inputWrapper input:placeholder-shown {
+    font-size: 1.1rem;
+    padding-left: 1rem;
+  }
+  #root #formWrapper #form #inputWrapper input::-webkit-input-placeholder {
+    color: #666;
+  }
+  #root #formWrapper #form #inputWrapper input:-ms-input-placeholder {
+    color: #666;
+  }
+  #root #formWrapper #form #inputWrapper input::-ms-input-placeholder {
+    color: #666;
+  }
+  #root #formWrapper #form #inputWrapper input::placeholder {
+    color: #666;
+  }
+  #root #formWrapper #form #btnSubmit {
+    width: 20rem;
+    border: none;
+    background-color: #eeaaa9;
+    -webkit-transition: 0.25s all ease-out;
+    transition: 0.25s all ease-out;
+    border-radius: 0.3rem;
+    height: 3rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 5rem;
+    font-family: "Roboto Mono", monospace;
+    -webkit-transform: translateY(30rem);
+            transform: translateY(30rem);
+    -webkit-animation: topToBottomBtn 3s ease 2s forwards;
+            animation: topToBottomBtn 3s ease 2s forwards;
+    position: relative;
+    z-index: 3;
+  }
+  #root #formWrapper #form #btnSubmit:hover {
+    outline-color: #eeaaa9;
+    width: 20rem;
+    height: 3rem;
+    outline-style: solid;
+    outline-width: 0.2rem;
+    outline-offset: 0.5rem;
+    background-color: #f39291;
+    color: #fff;
+  }
+  #root .lowerHeader {
+    text-align: center;
+    position: relative;
+    opacity: 0;
+    -webkit-animation: lowerHeaderAnimation 3s ease 2s forwards;
+            animation: lowerHeaderAnimation 3s ease 2s forwards;
+  }
+  @-webkit-keyframes type {
+    to {
+      left: 98%;
+    }
+  }
+  @keyframes type {
+    to {
+      left: 98%;
+    }
+  }
+  @-webkit-keyframes flicker {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes flicker {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes lowerHeaderAnimation {
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes lowerHeaderAnimation {
+    to {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes topToBottom {
+    to {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+  @keyframes topToBottom {
+    to {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+  @-webkit-keyframes topToBottomBtn {
+    from {
+      -webkit-transform: translateY(30rem);
+              transform: translateY(30rem);
+    }
+    to {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes topToBottomBtn {
+    from {
+      -webkit-transform: translateY(30rem);
+              transform: translateY(30rem);
+    }
+    to {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+/*# sourceMappingURL=style.css.map */
