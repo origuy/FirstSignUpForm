@@ -5,7 +5,7 @@ const mail = require('nodemailer');
 const { json } = require('body-parser');
 const { attachment } = require('express/lib/response');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 let transporter = mail.createTransport({
     service: 'gmail',
     auth:{
